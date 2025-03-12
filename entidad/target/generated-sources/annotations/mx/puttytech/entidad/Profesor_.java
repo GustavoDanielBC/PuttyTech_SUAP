@@ -7,7 +7,7 @@ import javax.persistence.metamodel.StaticMetamodel;
 import mx.puttytech.entidad.Asignacion;
 import mx.puttytech.entidad.Usuario;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2025-03-12T02:10:51")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2025-03-12T14:21:19")
 @StaticMetamodel(Profesor.class)
 public class Profesor_ { 
 
