@@ -1,8 +1,4 @@
-mx\puttytech\entidad\Asignacion_.class
-mx\puttytech\entidad\Usuario_.class
+mx\puttytech\entidad\Profesor.class
+mx\puttytech\entidad\Usuario.class
 mx\puttytech\entidad\Asignacion.class
 mx\puttytech\entidad\UnidadAprendizaje.class
-mx\puttytech\entidad\Profesor.class
-mx\puttytech\entidad\UnidadAprendizaje_.class
-mx\puttytech\entidad\Profesor_.class
-mx\puttytech\entidad\Usuario.class

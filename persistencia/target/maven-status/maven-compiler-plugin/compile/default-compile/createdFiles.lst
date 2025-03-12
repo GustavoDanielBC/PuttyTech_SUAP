@@ -1,0 +1,9 @@
+mx\puttytech\persistencia\AbstractDAO.class
+mx\puttytech\DAO\ProfesorDAO.class
+mx\puttytech\integracion\ServiceLocator.class
+mx\puttytech\persistencia\HibernateUtil.class
+mx\puttytech\DAO\UsuarioDAO.class
+mx\puttytech\DAO\UnidadAprendizajeDAO.class
+mx\puttytech\persistencia\InterfaceDAO.class
+test\test.class
+mx\puttytech\DAO\AsignacionDAO.class
