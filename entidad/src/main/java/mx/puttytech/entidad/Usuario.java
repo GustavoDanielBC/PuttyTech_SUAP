@@ -60,11 +60,10 @@ public class Usuario implements Serializable {
         this.idUsuario = idUsuario;
     }
 
-    public Usuario(Integer idUsuario, String nombreUsuario, String contrasena, String tipo) {
+    public Usuario(Integer idUsuario, String nombreUsuario, String contrasena) {
         this.idUsuario = idUsuario;
         this.nombreUsuario = nombreUsuario;
         this.contrasena = contrasena;
-        this.tipo = tipo;
     }
 
     public Integer getIdUsuario() {
