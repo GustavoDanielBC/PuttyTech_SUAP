@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:p="http://primefaces.org/ui"
+  xmlns:jsf="http://xmlns.jcp.org/jsf"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+>
+  <h:head>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <style>
+      body, html {
+          margin: 0;
+          padding: 0;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+      }
+
+      /* Sidebar Styling */
+      .sidebar {
+          width: 250px;
+          background-color: #004d00;
+          position: fixed;
+          height: 100%;
+          top: 0;
+          left: 0;
+          padding-top: 20px;
+          z-index: 999;
+      }
+
+      /* Título del Sidebar */
+      .sidebar .sidebar-title {
+          color: white;
+          font-size: 24px;
+          font-weight: bold;
+          text-align: center;
+          padding: 20px;
+          border-bottom: 2px solid #FFD700; /* Línea decorativa debajo del título */
+          margin-bottom: 20px;
+      }
+
+      .sidebar a {
+          color: white;
+          text-decoration: none;
+          display: block;
+          padding: 15px 20px;
+          font-weight: bold;
+          transition: background-color 0.3s ease;
+      }
+
+      .sidebar a:hover {
+          background-color: #FFD700; 
+          color: black;
+      }
+
+      /* Espacio para que no se superponga el sidebar sobre el contenido */
+      .main-content {
+          margin-left: 250px; /* Ajusta según el ancho del sidebar */
+          width: calc(100% - 250px);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 20px; 
+      }
+
+      /* Table Styling */
+      .contenedor {
+          width: 80%;
+          padding: 20px;
+          border-radius: 10px;
+          background-color: #f7f7f7;
+          box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+          margin-bottom: 20px;
+      }
+
+      .ui-datatable table {
+          width: 100%;
+          border-collapse: collapse;
+      }
+
+      .ui-datatable th, .ui-datatable td {
+          padding: 12px;
+          border: 1px solid #ddd;
+      }
+
+      .ui-datatable th {
+          background-color: #4CAF50;
+          color: white;
+      }
+
+      .ui-datatable td {
+          text-align: center;
+      }
+
+      .contenedor h2 {
+          margin-bottom: 20px;
+      }
+
+      .button-container {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr); /* Crea 2 columnas iguales */
+          gap: 20px; /* Espacio entre botones */
+          margin-top: 20px;
+          width: 80%; 
+          justify-items: center;
+      }
+    </style>
+  </h:head>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <!-- Título del Sidebar -->
+    <div class="sidebar-title">SUAP</div>
+    <a href="indexAdministrador.xhtml">Inicio</a>
+    <a href="altasProfesor.xhtml">Altas de Profesores</a>
+    <a href="altasUnidadAprendizaje.xhtml">Altas Unidades de Aprendizaje</a>
+    <a href="consultasProfesor.xhtml">Consulta Profesores</a>
+    <a href="consultasUnidadAprendizaje.xhtml">Consulta Unidades de Aprendizaje</a>
+    <a href="Cerrar.xhtml">Cerrar Sesion</a>
+  </div>
+
+  <h:body>
+    <div class="main-content">
+      <h1>Altas de profesores</h1>
+      <h:form>
+        <p:messages id="messages" showDetail="true" closable="true">
+        </p:messages>
+        <div class="altaProfs">
+          <div class="panel-header">
+          </div>
+          <div class="panel-body">
+            <div class="form-group">
+              <div class="form-group">
+                <p:inputText
+                  class="form-control"
+                  placeholder="Numero de profesor: "
+                  value="#{AltasBeanUI.profesor.numProfesor}"
+                />
+              </div>
+              <p:inputText
+                class="form-control"
+                placeholder="Nombre(s):"
+                autocomplete="false"
+                value="#{AltasBeanUI.profesor.nombre}"
+              />
+            </div>
+            <div class="form-group">
+              <p:inputText
+                class="form-control"
+                placeholder="Apellidos: "
+                value="#{AltasBeanUI.profesor.apellido}"
+              />
+            </div>
+            <div class="form-group">
+              <p:inputText
+                class="form-control"
+                placeholder="RFC: "
+                value="#{AltasBeanUI.profesor.rfc}"
+              />
+            </div>
+
+            <p:commandButton
+              update="messages"
+              class="btn btn-success"
+              value="Dar de alta"
+              actionListener="#{AltasBeanUI.darDeAlta()}"
+            />
+          </div>
+        </div>
+      </h:form>
+    </div>
+  </h:body>
+</html>

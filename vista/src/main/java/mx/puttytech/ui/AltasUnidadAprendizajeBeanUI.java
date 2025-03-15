@@ -16,7 +16,7 @@ public class AltasUnidadAprendizajeBeanUI {
         try {
             FacesContext facesContext = FacesContext.getCurrentInstance();
             NavigationHandler navigationHandler = facesContext.getApplication().getNavigationHandler();
-            navigationHandler.handleNavigation(facesContext, null, "ConsultasProfesores.xhtml?faces-redirect=true");
+            navigationHandler.handleNavigation(facesContext, null, "consultasProfesor.xhtml?faces-redirect=true");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -26,7 +26,7 @@ public class AltasUnidadAprendizajeBeanUI {
         try {
             FacesContext facesContext = FacesContext.getCurrentInstance();
             NavigationHandler navigationHandler = facesContext.getApplication().getNavigationHandler();
-            navigationHandler.handleNavigation(facesContext, null, "altaProfesores.xhtml?faces-redirect=true");
+            navigationHandler.handleNavigation(facesContext, null, "altaProfesor.xhtml?faces-redirect=true");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -36,7 +36,7 @@ public class AltasUnidadAprendizajeBeanUI {
         try {
             FacesContext facesContext = FacesContext.getCurrentInstance();
             NavigationHandler navigationHandler = facesContext.getApplication().getNavigationHandler();
-            navigationHandler.handleNavigation(facesContext, null, "consultaUnidades.xhtml?faces-redirect=true");
+            navigationHandler.handleNavigation(facesContext, null, "consultasUnidadAprendizaje.xhtml?faces-redirect=true");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -46,7 +46,7 @@ public class AltasUnidadAprendizajeBeanUI {
         try {
             FacesContext facesContext = FacesContext.getCurrentInstance();
             NavigationHandler navigationHandler = facesContext.getApplication().getNavigationHandler();
-            navigationHandler.handleNavigation(facesContext, null, "consultaUnidades.xhtml?faces-redirect=true");
+            navigationHandler.handleNavigation(facesContext, null, "consultasUnidadAprendizaje.xhtml?faces-redirect=true");
         } catch (Exception e) {
             e.printStackTrace();
         }
