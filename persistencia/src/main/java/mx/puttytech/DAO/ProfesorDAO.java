@@ -8,7 +8,7 @@ import mx.puttytech.persistencia.AbstractDAO;
 import mx.puttytech.persistencia.HibernateUtil;
 /**
  *
- * @author issac
+ * @author Usuario X
  */
 public class ProfesorDAO extends AbstractDAO<Integer, Profesor>{
     
@@ -17,7 +17,7 @@ public class ProfesorDAO extends AbstractDAO<Integer, Profesor>{
         String hql = "SELECT a.claveUnidadAprendizaje FROM Asignacion a WHERE a.numProfesor.numProfesor = :numProfesor";
     return (List<UnidadAprendizaje>) HibernateUtil.getSession()
             .createQuery(hql)
-            .setParameter("idProfesor", idProfesor)
+            .setParameter("numProfesor", idProfesor)
             .list();
     }
 }    

@@ -37,7 +37,7 @@ public class ServiceFacadeLocator {
       public static FacadeUsuario getInstanceFacadeUusuario() {
         if (facadeUsuario == null) {
             facadeUsuario = new FacadeUsuario();
-        }//aaahh
+        }
         return facadeUsuario;
       }
 }

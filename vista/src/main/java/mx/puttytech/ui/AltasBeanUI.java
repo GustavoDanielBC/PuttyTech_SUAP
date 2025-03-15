@@ -17,7 +17,7 @@ import mx.puttytech.entidad.Usuario;
 import mx.puttytech.helper.AltasHelper;
 import mx.puttytech.helper.UsuarioAltaHelper;
 
-@ManagedBean(name = "altaProfesorUI")
+@ManagedBean(name = "AltasBeanUI")
 @ViewScoped
 public class AltasBeanUI implements Serializable{
     private AltasHelper altasHelper;

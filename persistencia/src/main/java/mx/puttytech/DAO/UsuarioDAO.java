@@ -18,7 +18,7 @@ public class UsuarioDAO extends AbstractDAO<Integer, Usuario>{
         tx = session.beginTransaction();
 
         // Insertar en la tabla usuarios
-        String sqlUsuario = "INSERT INTO Usuario (idUsuario, contrasena, nombreUsuario) VALUES (:idUsuario, :contrasena, :nombreUsuario)";
+        String sqlUsuario = "INSERT INTO usuario (idUsuario, contrasena, nombreUsuario) VALUES (:idUsuario, :contrasena, :nombreUsuario)";
         SQLQuery queryUsuario = session.createSQLQuery(sqlUsuario);
         queryUsuario.setParameter("idUsuario", nuevoUsuario.getIdUsuario());
         queryUsuario.setParameter("contrasena", nuevoUsuario.getContrasena());
@@ -26,7 +26,7 @@ public class UsuarioDAO extends AbstractDAO<Integer, Usuario>{
         queryUsuario.executeUpdate();
 
         // Insertar en la tabla profesores
-        String sqlProfesor = "INSERT INTO profesores (id_profesor, nombre, apellido, rfc) VALUES (:id_profesor, :nombre, :apellido, :rfc)";
+        String sqlProfesor = "INSERT INTO profesor (numProfesor, nombre, apellido, RFC) VALUES (:numProfesor, :nombre, :apellido, :RFC)";
         SQLQuery queryProfesor = session.createSQLQuery(sqlProfesor);
         queryProfesor.setParameter("numProfesor", nuevoProfesor.getNumProfesor());
         queryProfesor.setParameter("nombre", nuevoProfesor.getNombre());

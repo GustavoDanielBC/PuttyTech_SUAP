@@ -12,6 +12,7 @@ import mx.puttytech.helper.ProfesorHelper;
  */
 
 
+
 public class ProfesorBeanUI {
     private final ProfesorHelper helper;
     private List<Profesor> profesores;
