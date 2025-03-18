@@ -15,107 +15,130 @@
     />
     <link href="style.css" rel="stylesheet" type="text/css" />
     <style>
-      body, html {
-          margin: 0;
-          padding: 0;
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-      }
+        /* Fuente general para toda la página */
+            body, html {
+                margin: 0;
+                padding: 0;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                font-family: Arial, sans-serif; /* Misma fuente que en altasProfesor.xhtml */
+            }
 
-      /* Sidebar Styling */
-      .sidebar {
-          width: 250px;
-          background-color: #004d00;
-          position: fixed;
-          height: 100%;
-          top: 0;
-          left: 0;
-          padding-top: 20px;
-          z-index: 999;
-      }
+            /* Sidebar Styling */
+            .sidebar {
+                width: 250px;
+                background-color: #004d00;
+                position: fixed;
+                height: 100%;
+                top: 0;
+                left: 0;
+                padding-top: 20px;
+                z-index: 999;
+                font-family: Arial, sans-serif; /* Misma fuente que en altasUnidadAprendizaje.xhtml */
+            }
 
-      /* Título del Sidebar */
-      .sidebar .sidebar-title {
-          color: white;
-          font-size: 24px;
-          font-weight: bold;
-          text-align: center;
-          padding: 20px;
-          border-bottom: 2px solid #FFD700; /* Línea decorativa debajo del título */
-          margin-bottom: 20px;
-      }
+            /* Título del Sidebar */
+            .sidebar .sidebar-title {
+                color: white;
+                font-size: 24px; /* Tamaño de fuente como en altasUnidadAprendizaje.xhtml */
+                font-weight: bold;
+                text-align: center;
+                padding: 20px;
+                border-bottom: 2px solid #FFD700; /* Línea decorativa debajo del título */
+                margin-bottom: 20px;
+            }
 
-      .sidebar a {
-          color: white;
-          text-decoration: none;
-          display: block;
-          padding: 15px 20px;
-          font-weight: bold;
-          transition: background-color 0.3s ease;
-      }
+            .sidebar a {
+                color: white;
+                text-decoration: none;
+                display: block;
+                padding: 15px 20px;
+                font-weight: bold;
+                font-size: 18px; /* Tamaño de fuente como en altasUnidadAprendizaje.xhtml */
+                transition: background-color 0.3s ease;
+            }
 
-      .sidebar a:hover {
-          background-color: #FFD700; 
-          color: black;
-      }
+            .sidebar a:hover {
+                background-color: #FFD700; /* Color amarillo suave */
+                color: black;
+                border-radius: 5px; /* Bordes redondeados al hacer hover */
+            }
 
-      /* Espacio para que no se superponga el sidebar sobre el contenido */
-      .main-content {
-          margin-left: 250px; /* Ajusta según el ancho del sidebar */
-          width: calc(100% - 250px);
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          padding: 20px; 
-      }
+            /* Ajuste del contenido para evitar que lo tape el sidebar */
+            .main-content {
+                margin-left: 250px; /* Ajusta según el ancho del sidebar */
+                width: calc(100% - 250px);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px; /* Añade un poco de padding para que el contenido no esté pegado al borde */
+                font-family: Arial, sans-serif; /* Misma fuente que en altasProfesor.xhtml */
+            }
 
-      /* Table Styling */
-      .contenedor {
-          width: 80%;
-          padding: 20px;
-          border-radius: 10px;
-          background-color: #f7f7f7;
-          box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-          margin-bottom: 20px;
-      }
+            /* Estilos para los títulos */
+            h1, h2 {
+                font-family: Arial, sans-serif; /* Misma fuente que en altasProfesor.xhtml */
+                color: #333; /* Color de texto oscuro */
+                margin-bottom: 20px;
+            }
 
-      .ui-datatable table {
-          width: 100%;
-          border-collapse: collapse;
-      }
+            /* Estilos personalizados para la tabla HTML */
+            .custom-table {
+                width: 100%;
+                border-collapse: collapse;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+                margin-bottom: 20px;
+                font-family: Arial, sans-serif; /* Misma fuente que en altasProfesor.xhtml */
+            }
 
-      .ui-datatable th, .ui-datatable td {
-          padding: 12px;
-          border: 1px solid #ddd;
-      }
+            .custom-table th,
+            .custom-table td {
+                padding: 15px;
+                text-align: center;
+                border-bottom: 1px solid #ddd;
+            }
 
-      .ui-datatable th {
-          background-color: #4CAF50;
-          color: white;
-      }
+            .custom-table th {
+                background-color: #008000; /* Verde oscuro para el encabezado */
+                color: white;
+                font-weight: bold;
+            }
 
-      .ui-datatable td {
-          text-align: center;
-      }
+            .custom-table tr:nth-child(even) {
+                background-color: #f7f7f7; /* Fondo gris claro para filas pares */
+            }
 
-      .contenedor h2 {
-          margin-bottom: 20px;
-      }
+            .custom-table tr:hover {
+                background-color: #e0f7fa; /* Fondo celeste claro al hacer hover */
+            }
 
-      .button-container {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr); /* Crea 2 columnas iguales */
-          gap: 20px; /* Espacio entre botones */
-          margin-top: 20px;
-          width: 80%; 
-          justify-items: center;
-      }
+            /* Estilos para los botones de acción */
+            .action-button {
+                background-color: #4CAF50; /* Verde */
+                border: none;
+                color: white;
+                padding: 8px 12px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 14px;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                font-family: Arial, sans-serif; /* Misma fuente que en altasProfesor.xhtml */
+            }
+
+            .action-button:hover {
+                background-color: #45a049; /* Verde más oscuro al hacer hover */
+            }
     </style>
   </h:head>
 
-  <!-- Sidebar -->
+     <!-- Sidebar -->
   <div class="sidebar">
     <!-- Título del Sidebar -->
     <div class="sidebar-title">SUAP</div>
@@ -124,6 +147,7 @@
     <a href="altasUnidadAprendizaje.xhtml">Altas Unidades de Aprendizaje</a>
     <a href="consultasProfesor.xhtml">Consulta Profesores</a>
     <a href="consultasUnidadAprendizaje.xhtml">Consulta Unidades de Aprendizaje</a>
+    <a href="asignacion.xhtml">Asignacion de Profesores</a>
     <a href="Cerrar.xhtml">Cerrar Sesion</a>
   </div>
 
