@@ -11,6 +11,10 @@ public class DelegateProfesor {
   public void saveProfesor(Profesor profesores){
         ServiceLocator.getInstanceProfesorDAO().save(profesores);
     }
+  
+    public List<Profesor> ConsultarProfesor(Profesor profesores){
+       return ServiceLocator.getInstanceProfesorDAO().SeleccionarProfesor(profesores);
+    }
     
     public void updateProfesor(Profesor profesor) {
         ServiceLocator.getInstanceProfesorDAO().update(profesor);

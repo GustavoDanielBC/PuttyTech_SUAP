@@ -1,5 +1,6 @@
 
 package mx.puttytech.ui;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
@@ -12,7 +13,8 @@ import mx.puttytech.helper.ProfesorHelper;
  */
 
 
-
+@ManagedBean(name = "ProfesorBeanUI")
+@ViewScoped
 public class ProfesorBeanUI {
     private final ProfesorHelper helper;
     private List<Profesor> profesores;
@@ -25,6 +27,10 @@ public class ProfesorBeanUI {
     
     public List<Profesor> getProfesores() {
         return profesores;
+    }
+    
+    public void ConsultarProfesor() throws IOException{
+        helper.consultarProfesores(profesorSeleccionado);
     }
     
     public void setProfesorSeleccionado(Profesor profesorSeleccionado) {

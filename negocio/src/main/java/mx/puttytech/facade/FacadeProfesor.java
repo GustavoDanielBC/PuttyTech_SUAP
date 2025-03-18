@@ -31,4 +31,8 @@ public class FacadeProfesor {
     public Profesor findProfesoresById(Integer id) {
         return delegateProfesor.findProfesorById(id);
     }
+    
+    public List <Profesor> consultarProfesor(Profesor profesores){
+        return delegateProfesor.ConsultarProfesor(profesores);
+    }
 }

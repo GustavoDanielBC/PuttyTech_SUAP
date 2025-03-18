@@ -12,7 +12,7 @@ import mx.puttytech.persistencia.HibernateUtil;
  */
 public class ProfesorDAO extends AbstractDAO<Integer, Profesor>{
     
-    //Falta Correccion Evitar Mover
+    
     public List<UnidadAprendizaje> findUnidadesByProfesor(int idProfesor) {
         String hql = "SELECT a.claveUnidadAprendizaje FROM Asignacion a WHERE a.numProfesor.numProfesor = :numProfesor";
     return (List<UnidadAprendizaje>) HibernateUtil.getSession()
@@ -20,4 +20,12 @@ public class ProfesorDAO extends AbstractDAO<Integer, Profesor>{
             .setParameter("numProfesor", idProfesor)
             .list();
     }
+    
+     public List<Profesor> SeleccionarProfesor(Profesor idProfesor){
+         String sqlconsul = "SELECT * FROM profesor";
+         return (List<Profesor>) HibernateUtil.getSession()
+                 .createQuery(sqlconsul)
+                 .setParameter("numProfesor",idProfesor)
+                 .list();
+     }
 }    
