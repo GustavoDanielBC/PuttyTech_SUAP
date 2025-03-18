@@ -160,15 +160,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <ui:repeat value="#{ProfesorBeanUI.Profesor}" var="profesor">
+                        <ui:repeat value="#{ProfesorBeanUI.profesores}" var="profesores">
                             <tr>
-                                <td>#{Profesor.idProfesor}</td>
-                                <td>#{Profesor.nombre}</td>
-                                <td>#{Profesor.apellido}</td>
-                                <td>#{Profesor.rfc}</td>
+                                <td>#{profesores.numProfesor}</td>
+                                <td>#{profesores.nombre}</td>
+                                <td>#{profesores.apellido}</td>
+                                <td>#{profesores.rfc}</td>
                                 <td>
                                     <p:commandButton value="Eliminar" 
-                                        action="#{ProfesorBeanUI.setProfesorSeleccionado(Profesor)}" 
+                                        action="#{ProfesorBeanUI.setProfesorSeleccionado(profesores)}" 
                                         onclick="PF('confirmDialog').show();" 
                                         process="@this"
                                         styleClass="action-button" />
@@ -191,30 +191,6 @@
                     <p:commandButton value="No" onclick="PF('confirmDialog').hide()" 
                                      styleClass="action-button" />
                 </p:confirmDialog>
-
-                <!-- Diálogo para mostrar unidades asignadas -->
-                <p:dialog header="Unidades Asignadas" widgetVar="unidadesDialog" modal="true" resizable="false" closeOnEscape="true">
-                    <h:panelGrid columns="2">
-                        <table class="custom-table">
-                            <thead>
-                                <tr>
-                                    <th>NUM</th>
-                                    <th>Nombre</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <ui:repeat value="#{ProfesorBeanUI.unidadesAsignadas}" var="unidad">
-                                    <tr>
-                                        <td>#{unidad.idUnidadAprendizaje}</td>
-                                        <td>#{unidad.nombre}</td>
-                                    </tr>
-                                </ui:repeat>
-                            </tbody>
-                        </table>
-                        <p:commandButton value="Cerrar" onclick="PF('unidadesDialog').hide();" 
-                                         styleClass="action-button" />
-                    </h:panelGrid>
-                </p:dialog>
             </div>
         </h:form>
     </h:body>
