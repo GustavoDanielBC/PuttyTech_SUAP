@@ -168,12 +168,12 @@
                                 <td>#{profesores.apellido}</td>
                                 <td>#{profesores.rfc}</td>
                                 <td>
-                                    <!-- Botón para modificar -->
+                                    <!-- Botón para modificar 
                                     <p:commandButton value="Modificar" 
                                         action="#{ProfesorBeanUI.setProfesorSeleccionado(profesores)}" 
                                         onclick="PF('dialogoModificar').show();" 
                                         process="@this"
-                                        styleClass="action-button" />
+                                        styleClass="action-button" />-->
 
                                     <!-- Botón para eliminar -->
                                     <p:commandButton value="Eliminar" 
@@ -201,7 +201,7 @@
                                      styleClass="action-button" />
                 </p:confirmDialog>
 
-                <!-- Diálogo para modificar profesor -->
+                <!-- Diálogo para modificar profesor 
                 <p:dialog header="Modificar Profesor" widgetVar="dialogoModificar" modal="true" resizable="false" closeOnEscape="true">
                     <h:panelGrid columns="2">
                         <p:outputLabel for="nombre" value="Nombre:" />
@@ -219,7 +219,7 @@
                                          update="@form"
                                          styleClass="action-button" />
                     </h:panelGrid>
-                </p:dialog>
+                </p:dialog>-->
             </div>
         </h:form>
     </h:body>

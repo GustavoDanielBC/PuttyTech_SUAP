@@ -157,14 +157,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <ui:repeat value="#{unidadBeanUI.unidades}" var="unidadesacademicas">
+                        <ui:repeat value="#{UnidadBeanUI.unidades}" var="unidadesacademicas">
                             <tr>
-                                <td>#{unidadesacademicas.unidadDeAprendizajeId}</td>
-                                <td>#{unidadesacademicas.nombre}</td>
+                                <td>#{unidadesacademicas.claveUnidadAprendizaje}</td>
+                                <td>#{unidadesacademicas.nombreunidad}</td>
                                 <td>#{unidadesacademicas.horasClase}</td>
                                 <td>#{unidadesacademicas.horasTaller}</td>
                                 <td>#{unidadesacademicas.horasLaboratorio}</td>
-                            </tr>
+                            </tr>    
                         </ui:repeat>
                     </tbody>
                 </table>

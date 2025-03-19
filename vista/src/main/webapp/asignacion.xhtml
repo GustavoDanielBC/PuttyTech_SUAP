@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Vista de Administrador</title>
+        <style>
+            /* Fuente general para toda la página */
+            body, html {
+                margin: 0;
+                padding: 0;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                font-family: Arial, sans-serif; /* Misma fuente que en altasProfesor.xhtml */
+            }
+
+            /* Sidebar Styling */
+            .sidebar {
+                width: 250px;
+                background-color: #004d00;
+                position: fixed;
+                height: 100%;
+                top: 0;
+                left: 0;
+                padding-top: 20px;
+                z-index: 999;
+                font-family: Arial, sans-serif; /* Misma fuente que en altasUnidadAprendizaje.xhtml */
+            }
+
+            /* Título del Sidebar */
+            .sidebar .sidebar-title {
+                color: white;
+                font-size: 24px; /* Tamaño de fuente como en altasUnidadAprendizaje.xhtml */
+                font-weight: bold;
+                text-align: center;
+                padding: 20px;
+                border-bottom: 2px solid #FFD700; /* Línea decorativa debajo del título */
+                margin-bottom: 20px;
+            }
+
+            .sidebar a {
+                color: white;
+                text-decoration: none;
+                display: block;
+                padding: 15px 20px;
+                font-weight: bold;
+                font-size: 18px; /* Tamaño de fuente como en altasUnidadAprendizaje.xhtml */
+                transition: background-color 0.3s ease;
+            }
+
+            .sidebar a:hover {
+                background-color: #FFD700; /* Color amarillo suave */
+                color: black;
+                border-radius: 5px; /* Bordes redondeados al hacer hover */
+            }
+
+            /* Ajuste del contenido para evitar que lo tape el sidebar */
+            .main-content {
+                margin-left: 250px; /* Ajusta según el ancho del sidebar */
+                width: calc(100% - 250px);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px; /* Añade un poco de padding para que el contenido no esté pegado al borde */
+                font-family: Arial, sans-serif; /* Misma fuente que en altasProfesor.xhtml */
+            }
+
+            /* Estilos para los títulos */
+            h1, h2 {
+                font-family: Arial, sans-serif; /* Misma fuente que en altasProfesor.xhtml */
+                color: #333; /* Color de texto oscuro */
+                margin-bottom: 20px;
+            }
+
+            /* Estilos personalizados para la tabla HTML */
+            .custom-table {
+                width: 100%;
+                border-collapse: collapse;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+                margin-bottom: 20px;
+                font-family: Arial, sans-serif; /* Misma fuente que en altasProfesor.xhtml */
+            }
+
+            .custom-table th,
+            .custom-table td {
+                padding: 15px;
+                text-align: center;
+                border-bottom: 1px solid #ddd;
+            }
+
+            .custom-table th {
+                background-color: #008000; /* Verde oscuro para el encabezado */
+                color: white;
+                font-weight: bold;
+            }
+
+            .custom-table tr:nth-child(even) {
+                background-color: #f7f7f7; /* Fondo gris claro para filas pares */
+            }
+
+            .custom-table tr:hover {
+                background-color: #e0f7fa; /* Fondo celeste claro al hacer hover */
+            }
+
+            /* Estilos para los botones de acción */
+            .action-button {
+                background-color: #4CAF50; /* Verde */
+                border: none;
+                color: white;
+                padding: 8px 12px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 14px;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                font-family: Arial, sans-serif; /* Misma fuente que en altasProfesor.xhtml */
+            }
+
+            .action-button:hover {
+                background-color: #45a049; /* Verde más oscuro al hacer hover */
+            }
+
+            /* New Table Design for Asignaciones Actuales */
+            .custom-table-alt {
+                width: 100%;
+                border-spacing: 0;
+                margin-bottom: 20px;
+                font-family: Arial, sans-serif;
+                background: #f9f9f9;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            }
+            .custom-table-alt thead {
+                background-color: #00796b;
+                color: #fff;
+            }
+            .custom-table-alt th, .custom-table-alt td {
+                padding: 12px 20px;
+                text-align: center;
+                border-bottom: 1px solid #ddd;
+            }
+            .custom-table-alt tbody tr:hover {
+                background-color: #e0f2f1;
+            }
+            .custom-table-alt tbody tr:last-child td {
+                border-bottom: none;
+            }
+            /* Style for action buttons inside the table */
+            .custom-table-alt .action-button {
+                background-color: #00695c;
+                padding: 6px 10px;
+                font-size: 12px;
+                border-radius: 4px;
+            }
+            .custom-table-alt .action-button:hover {
+                background-color: #004d40;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Título del Sidebar -->
+            <div class="sidebar-title">SUAP</div>
+            <a href="indexAdministrador.xhtml">Inicio</a>
+            <a href="altasProfesor.xhtml">Altas de Profesores</a>
+            <a href="altasUnidadAprendizaje.xhtml">Altas Unidades de Aprendizaje</a>
+            <a href="consultasProfesor.xhtml">Consulta Profesores</a>
+            <a href="consultasUnidadAprendizaje.xhtml">Consulta Unidades de Aprendizaje</a>
+            <a href="asignacion.xhtml">Asignacion de Profesores</a>
+            <a href="Cerrar.xhtml">Cerrar Sesion</a>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Tabla para Profesores -->
+            <h:form id="formProfesores">
+                <div class="contenedor">
+                    <h2>Lista de Profesores</h2>
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>RFC</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <ui:repeat value="#{ProfesorBeanUI.profesores}" var="profesores">
+                                <tr>
+                                    <td>#{profesores.numProfesor}</td>
+                                    <td>#{profesores.nombre}</td>
+                                    <td>#{profesores.apellido}</td>
+                                    <td>#{profesores.rfc}</td>
+                                </tr>
+                            </ui:repeat>
+                        </tbody>
+                    </table>
+                </div>
+            </h:form>
+
+            <!-- Tabla para Unidades de Aprendizaje -->
+            <h:form id="formMaterias">
+                <div class="contenedor">
+                    <h2>Lista de Unidades de Aprendizaje</h2>
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th>ID Materia</th>
+                                <th>Nombre</th>
+                                <th>Horas Clase</th>
+                                <th>Horas Taller</th>
+                                <th>Horas Laboratorio</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <ui:repeat value="#{UnidadBeanUI.unidades}" var="unidadadesacademicas">
+                                <tr>
+                                    <td>#{unidadesacademicas.claveUnidadAprendizaje}</td>
+                                <td>#{unidadesacademicas.nombreunidad}</td>
+                                <td>#{unidadesacademicas.horasClase}</td>
+                                <td>#{unidadesacademicas.horasTaller}</td>
+                                <td>#{unidadesacademicas.horasLaboratorio}</td>
+                                </tr>
+                            </ui:repeat>
+                        </tbody>
+                    </table>
+                </div>
+            </h:form>
+
+            <!-- Modern Card Design for Asignar Unidades de Aprendizaje a Profesores -->
+            <h:form id="formAsignaciones">
+                <div class="contenedor">
+                    <div class="card">
+                        <h2 class="card-title">Asignar Unidades de Aprendizaje a Profesores</h2>
+                        <h:panelGrid columns="2" styleClass="assignment-grid">
+                            <p:outputLabel for="profesor" value="Profesor:" styleClass="assignment-label" />
+                            <p:selectOneMenu id="profesor" value="#{asignacionBeanUI.profesorSeleccionado}" styleClass="assignment-select">
+                                <f:selectItems value="#{ProfesorBeanUI.profesores}" var="profesor"
+                                               itemLabel="#{profesor.nombre} #{profesor.apellido}"
+                                               itemValue="#{profesor}" />
+                            </p:selectOneMenu>
+
+                            <p:outputLabel for="unidad" value="Unidad de Aprendizaje:" styleClass="assignment-label" />
+                            <p:selectOneMenu id="unidad" value="#{asignacionBeanUI.unidadSeleccionada}" styleClass="assignment-select">
+                                <f:selectItems value="#{UnidadBeanUI.unidades}" var="unidadadesacademicas"
+                                               itemLabel="#{unidadadesacademicas.nombreunidad}"
+                                               itemValue="#{unidadadesacademicas}" />
+                            </p:selectOneMenu>
+                        </h:panelGrid>
+                        <div class="assignment-button-container">
+                            <p:commandButton value="Asignar" 
+                                             action="#{asignacionBeanUI.asignarUnidadAProfesor()}"
+                                             update="formAsignaciones,formAsignacionesActuales" 
+                                             styleClass="modern-button" />
+                        </div>
+                    </div>
+                </div>
+            </h:form>
+
+            <!-- Tabla para Mostrar Asignaciones Actuales -->
+            <h:form id="formAsignacionesActuales">
+                <div class="contenedor">
+                    <h2>Asignaciones Actuales</h2>
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th>Profesor</th>
+                                <th>Unidad de Aprendizaje</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <ui:repeat value="#{asignacionBeanUI.asignaciones}" var="asignacion">
+                                <tr>
+                                    <td>#{asignacion.profesores.nombre} #{asignacion.profesores.apellido}</td>
+                                    <td>#{asignacion.unidadadesacademicas.nombre}</td>
+                                    <td>
+                                        <p:commandButton icon="pi pi-pencil" title="Modificar Asignación"
+                                                         action="#{asignacionBeanUI.prepararEdicion(asignacion)}"
+                                                         update="formAsignacionesActuales" 
+                                                         styleClass="action-button" />
+                                        <p:commandButton icon="pi pi-trash" title="Eliminar Asignación"
+                                                         action="#{asignacionBeanUI.eliminarAsignacion(asignacion)}"
+                                                         update="formAsignacionesActuales" 
+                                                         styleClass="action-button" />
+                                    </td>
+                                </tr>
+                            </ui:repeat>
+                        </tbody>
+                    </table>
+                </div>
+            </h:form>
+        </div>
+    </h:body>
+</html>
